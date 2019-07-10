@@ -1,0 +1,8 @@
+// jest always executes .test.js files ---------- only it not runs index.js or any DB connections automatically all
+
+// testing using jest. on AdvacnedNodeS.. project
+// puppeteer for chromium interaction
+
+
+
+ //tripple check spelling
