@@ -1,0 +1,49 @@
+// Continuous Integraion - CI providers (TravisCI, CircleCi, Codeship, AWS Codebuild)
+
+CI providers - Ci server for you. Virtual machine automatically cloing our project and run test on it. 
+                adding code will not break anything.
+
+TravisCI - easy . straight forward. 
+CircleCi - idetical to TravisCI. Beginner theese two similar and nature.
+AWS Codebuild - Advacned little bit. Advacned repository source management system
+
+ourApp : Mongodb - ExpresServer - RedisServer
+
+TravisCI 
+    everything is   .travis.yaml
+    YAML - Simplified way of JSON data. numbers and strings. YAML to JSON convertor
+    trusty - very small linux os. for small very well. travis will install trusty
+    we need mongodb and redis server. travis will start mognodb and redis-server
+
+    env: array of key-value. enviroment variables on any time ci-server runs.
+        process.env.NODE_ENV === 'ci' : there is an enviromental variable NODE_ENV. if it equal to ci
+    cache : tell the travis to install node_modules kind of folders atleast one time and cache it. rather than reinstalling node_modules all time. cache that
+            speeding up our built. old_modules == new_modules>fast. old_modules<new_modules>npm install take some time.
+
+
+
+ Development : 
+    React server 3000 only in developement
+    express server 5000 
+ Prod : only the express will run
+    express server also responsible for client build directory
+
+
+
+ Package.json : node 
+    "build":"npm install -->into the client directory (--prefix client)  and npm run build also inside client directory"
+
+
+ Package.json : React
+    script."build" : 'react-scripts-start' it takes everything from src folder and tight them compiled tog=ehter compressed packaeg "build"
+                    final output file is build directory-serving to clients
+
+
+sleep: after put command server start before testing start wait for some time
+
+note4Travis: When pushing codebase to CI travis should know we want mongodb and redis server.
+             instruct express to connect to mongodb and redis. url in the port(6379)
+
+
+ index.js 35: 
+   if production use client/build in your port. setting this also ci.

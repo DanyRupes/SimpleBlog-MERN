@@ -1,0 +1,21 @@
+language: node_js
+npm: 
+ - "10"
+dist: trusty
+services: 
+ - mongodb
+ - redis-server
+env: 
+  - NODE_ENV=ci
+  - PORT=3000
+cache: 
+  directories: 
+    - node_modules
+    - client/node_modules
+install: 
+  - npm install
+  - npm run build
+script: 
+  - nohub npm run start &
+  - sleep 3
+  - npm run test
