@@ -8,7 +8,7 @@ class CustomPage {
 
     const browser = await puppeteer.launch({
             headless: true,
-            // args: ['--no-sandbox']
+            args: ['--no-sandbox'] //decrease the amount of time to run travis
           });
       
     const page = await browser.newPage();
