@@ -25,18 +25,19 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // let i=0
-app.get('/',(req, res)=>{
-  // console.log("",i++)
-  res.send('fine')
-})
+// app.get('/',(req, res)=>{
+//   // console.log("",i++)
+//   res.send('fine')
+// })
 require('./routes/authRoutes')(app);
 require('./routes/blogRoutes')(app);
 
-if (['production','cicd'].includes(process.env.NODE_ENV)) {
+if (['production','ci'].includes(process.env.NODE_ENV)) {
   app.use(express.static('client/build'));
 
   const path = require('path');
   app.get('*', (req, res) => {
+    // console.log("-----------------")
     res.sendFile(path.resolve('client', 'build', 'index.html'));
   });
 }
