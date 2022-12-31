@@ -26,7 +26,7 @@
     "cookie-session": "^2.0.0-beta.2",
     "express": "^4.17.1",
     "jest": "^24.8.0",
-    "migrate-mongoose": "^3.2.2",
+    "migrate-mongoose": "^4.0.0",
     "mongoose": "^5.6.2",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
